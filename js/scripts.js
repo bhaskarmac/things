@@ -6,7 +6,7 @@ $(document).ready(function () {
 	if (typeof(Storage) !== "undefined") {
 		console.log('localStorage supported!');
 
-		thingsDB = localStorage.getItem("lastname");
+		thingsDB = localStorage.getItem("thingsDB");
 		if(thingsDB){
 			thingsDB = JSON.parse(thingsDB);
 			console.log('thingsDB found=>', thingsDB);
@@ -19,8 +19,8 @@ $(document).ready(function () {
 			// 	name: 'test',
 			// 	on: 'something'
 			// });
-			localStorage.setItem("lastname", JSON.stringify(thingsDB));
-			thingsDB = localStorage.getItem("lastname");
+			localStorage.setItem("thingsDB", JSON.stringify(thingsDB));
+			thingsDB = localStorage.getItem("thingsDB");
 			console.log('thingsDB=>', thingsDB);
 			console.log('thingsDB=>', JSON.parse(thingsDB));
 		}
