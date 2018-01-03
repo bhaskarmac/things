@@ -54,11 +54,11 @@ $(document).ready(function () {
 			<div class="card blue-grey darken-1">\
 			<div class="card-content white-text">\
 			<div class="row">\
-			<div class="input-field col s6">\
+			<div class="input-field col s8">\
 			<span class="card-title">'+txtThingName+'</span>\
 			</div>\
-			<div class="input-field col s6">\
-			<span class="card-title">'+txtThingName+'</span>\
+			<div class="input-field col s4">\
+			<p>'+txtThingBoughtDate+'</p>\
 			</div>\
 			</div>\
 			</div>\
@@ -67,12 +67,11 @@ $(document).ready(function () {
 			<div class="col s12 m4 l2"></div>\
 			</div>');
 
-
-
-
 		thingsDB = localStorage.getItem("thingsDB");
 		console.log('thingsDB=>', thingsDB);
 		if(thingsDB){
+			thingsDB = JSON.parse(localStorage.getItem("thingsDB"));
+			console.log('thingsDB=>', thingsDB);
 			thingsDB.push({
 				name: txtThingName,
 				boughtDate: txtThingBoughtDate
