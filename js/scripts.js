@@ -1,6 +1,17 @@
 $(document).ready(function () {
 	console.log('document ready');
 
+	$('.modal').modal();
+
+	$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 50, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+
 	var thingsDB = [];
 
 	if (typeof(Storage) !== "undefined") {
@@ -35,7 +46,9 @@ $(document).ready(function () {
 		thingsDB = localStorage.getItem("thingsDB");
 		console.log('thingsDB=>', thingsDB);
 		if(thingsDB){
-
+			// thingsDB.push({
+			// 	name: 
+			// });
 		}else{
 			
 		}
