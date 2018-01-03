@@ -6,9 +6,10 @@
 	margin-top: 30px;
 }
 .notSupported{
-	background: #c0392b;
+	background: #ee6e73;
 	height: 7px;
 	width: 100%;
 	position: fixed;
 	top: 0;
+	display: none;
 }

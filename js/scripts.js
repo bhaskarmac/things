@@ -33,6 +33,7 @@ $(document).ready(function () {
 			console.log('thingsDB=>', JSON.parse(thingsDB));
 		}
 	} else {
+		$('.notSupported').slideDown('slow');
 		alert('Oops! this application will not work, your browser does not support localStorage feature!')
 	}
 
