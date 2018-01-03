@@ -32,7 +32,7 @@ $(document).ready(function () {
 	$('#btnAdd').click(function () {
 		console.log('btnAdd clicked');
 
-		thingsDB = localStorage.getItem("lastname");
+		thingsDB = localStorage.getItem("thingsDB");
 		console.log('thingsDB=>', thingsDB);
 		if(thingsDB){
 
