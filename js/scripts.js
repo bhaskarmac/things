@@ -1,6 +1,8 @@
 $(document).ready(function () {
 	console.log('document ready');
 
+	var thingsDB = [];
+
 	$('.modal').modal();
 
 	$('.datepicker').pickadate({
@@ -12,11 +14,10 @@ $(document).ready(function () {
     closeOnSelect: false // Close upon selecting a date,
   });
 
-	var thingsDB = [];
 
+	//check for the localStorage support in the browser or not
 	if (typeof(Storage) !== "undefined") {
 		console.log('localStorage supported!');
-
 		thingsDB = localStorage.getItem("thingsDB");
 		if(thingsDB){
 			thingsDB = JSON.parse(thingsDB);
@@ -26,10 +27,6 @@ $(document).ready(function () {
 			console.log('thingsDB=>', thingsDB);
 			console.log('thingsDB not found setting up DB!');
 			thingsDB = [];
-			// thingsDB.push({
-			// 	name: 'test',
-			// 	on: 'something'
-			// });
 			localStorage.setItem("thingsDB", JSON.stringify(thingsDB));
 			thingsDB = localStorage.getItem("thingsDB");
 			console.log('thingsDB=>', thingsDB);
@@ -39,10 +36,8 @@ $(document).ready(function () {
 		alert('Oops! this application will not work, your browser does not support localStorage feature!')
 	}
 
-
 	$('#btnAdd').click(function () {
 		console.log('btnAdd clicked');
-
 		var txtThingName = $('#txtThingName').val();
 		var txtThingBoughtDate = $('#txtThingBoughtDate').val();
 		console.log('txtThingName=>', txtThingName);
