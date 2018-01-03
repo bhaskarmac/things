@@ -1,13 +1,13 @@
 $(document).ready(function () {
-	console.log('document ready');
+	console.log('DOM ready');
 
 	var thingsDB = [];
 
 	$('.modal').modal();
 
 	$('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 50, // Creates a dropdown of 15 years to control year,
+    selectMonths: true, // Creates a drop-down to control month
+    selectYears: 50, // Creates a drop-down of 15 years to control year,
     today: 'Today',
     clear: 'Clear',
     close: 'Ok',
@@ -73,6 +73,7 @@ $(document).ready(function () {
 				boughtDate: txtThingBoughtDate
 			});
 			console.log('after adding thingsDB=>', thingsDB);
+			
 		}else{
 			
 		}
