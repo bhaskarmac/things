@@ -1,7 +1,14 @@
 *{
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 .container{
 	margin-top: 30px;
+}
+.notSupported{
+	background: #c0392b;
+	height: 7px;
+	width: 100%;
+	position: fixed;
+	top: 0;
 }
