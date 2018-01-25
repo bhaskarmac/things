@@ -73,9 +73,9 @@ $(document).ready(function () {
 				boughtDate: txtThingBoughtDate
 			});
 			console.log('after adding thingsDB=>', thingsDB);
-			
+			localStorage.setItem("thingsDB", JSON.stringify(thingsDB));
 		}else{
-			
+
 		}
 
 	});
