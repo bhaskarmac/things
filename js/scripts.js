@@ -6,13 +6,13 @@ $(document).ready(function () {
 	$('.modal').modal();
 
 	$('.datepicker').pickadate({
-    selectMonths: true, // Creates a drop-down to control month
-    selectYears: 50, // Creates a drop-down of 15 years to control year,
-    today: 'Today',
-    clear: 'Clear',
-    close: 'Ok',
-    closeOnSelect: false // Close upon selecting a date,
-  });
+		selectMonths: true, // Creates a drop-down to control month
+		selectYears: 50, // Creates a drop-down of 15 years to control year,
+		today: 'Today',
+		clear: 'Clear',
+		close: 'Ok',
+		closeOnSelect: false // Close upon selecting a date,
+	});
 
 
 	//check for the localStorage support in the browser or not
@@ -25,6 +25,7 @@ $(document).ready(function () {
 			window.document.title = "Things (" + thingsDB.length +")";
 			$('#btnSettings').show();
 
+			generateThingsUI();
 		}else{
 			console.log('thingsDB=>', thingsDB);
 			console.log('thingsDB not found setting up DB!');
@@ -47,23 +48,23 @@ $(document).ready(function () {
 		console.log('txtThingBoughtDate=>', txtThingBoughtDate);
 
 		$('.container').append('<div class="row">\
-			<div class="col s12 m4 l2"></div>\
-			<div class="col s12 m4 l8">\
-			<div class="card blue-grey darken-1">\
-			<div class="card-content white-text">\
-			<div class="row">\
-			<div class="input-field col s8">\
-			<span class="card-title">'+txtThingName+'</span>\
-			</div>\
-			<div class="input-field col s4">\
-			<p>'+txtThingBoughtDate+'</p>\
-			</div>\
-			</div>\
-			</div>\
-			</div>\
-			</div>\
-			<div class="col s12 m4 l2"></div>\
-			</div>');
+		<div class="col s12 m4 l2"></div>\
+		<div class="col s12 m4 l8">\
+		<div class="card blue-grey darken-1">\
+		<div class="card-content white-text">\
+		<div class="row">\
+		<div class="input-field col s8">\
+		<span class="card-title">'+txtThingName+'</span>\
+		</div>\
+		<div class="input-field col s4">\
+		<p>'+txtThingBoughtDate+'</p>\
+		</div>\
+		</div>\
+		</div>\
+		</div>\
+		</div>\
+		<div class="col s12 m4 l2"></div>\
+		</div>');
 
 		thingsDB = localStorage.getItem("thingsDB");
 		console.log('thingsDB=>', thingsDB);
@@ -82,6 +83,39 @@ $(document).ready(function () {
 
 	});
 
+	function generateThingsUI() {
+		console.log('In generateThingsUI');
+		var thingName, thingBoughtDate;
+
+		thingsDB = JSON.parse(localStorage.getItem("thingsDB"));
+
+		for (var i = 0; i < thingsDB.length; i++) {
+			thingName = thingsDB[i].name;
+			thingBoughtDate = thingsDB[i].boughtDate;
+			console.log('thingName=>', thingName);
+			console.log('thingBoughtDate=>', thingBoughtDate);
+
+			$('.container').append('<div class="row">\
+			<div class="col s12 m4 l2"></div>\
+			<div class="col s12 m4 l8">\
+			<div class="card blue-grey darken-1">\
+			<div class="card-content white-text">\
+			<div class="row">\
+			<div class="input-field col s8">\
+			<span class="card-title">'+thingName+'</span>\
+			</div>\
+			<div class="input-field col s4">\
+			<p>'+thingBoughtDate+'</p>\
+			</div>\
+			</div>\
+			</div>\
+			</div>\
+			</div>\
+			<div class="col s12 m4 l2"></div>\
+			</div>');
+		}
+
+	}
 
 
 });
