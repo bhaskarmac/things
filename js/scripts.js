@@ -22,7 +22,9 @@ $(document).ready(function () {
 		if(thingsDB){
 			thingsDB = JSON.parse(thingsDB);
 			console.log('thingsDB found=>', thingsDB);
+			window.document.title = "Things (" + thingsDB.length +")";
 			$('#btnSettings').show();
+
 		}else{
 			console.log('thingsDB=>', thingsDB);
 			console.log('thingsDB not found setting up DB!');
@@ -79,5 +81,7 @@ $(document).ready(function () {
 		}
 
 	});
+
+
 
 });
